@@ -1,0 +1,60 @@
+Name:         docker-build
+Namespace:    default
+Labels:       <none>
+Annotations:  kubectl.kubernetes.io/last-applied-configuration={"apiVersion":"build.knative.dev/v1alpha1","kind":"Build","metadata":{"annotations":{},"name":"docker-build","namespace":"default"},"spec":{"serviceAcc...
+API Version:  build.knative.dev/v1alpha1
+Kind:         Build
+Metadata:
+  Cluster Name:        
+  Creation Timestamp:  2018-08-10T04:58:10Z
+  Generation:          1
+  Resource Version:    11158
+  Self Link:           /apis/build.knative.dev/v1alpha1/namespaces/default/builds/docker-build
+  UID:                 fa4afb12-9c59-11e8-b076-42010a8e021e
+Spec:
+  Generation:            1
+  Service Account Name:  build-bot
+  Source:
+    Git:
+      Revision:  master
+      URL:       https://github.com/boxboat/hello-world-webapp.git
+  Steps:
+    Args:
+      --dockerfile=/workspace/Dockerfile
+      --destination=docker.io/boxboat/hello-world-webapp
+    Image:  gcr.io/kaniko-project/executor:v0.1.0
+    Name:   build-and-push
+    Resources:
+Status:
+  Builder:  Cluster
+  Cluster:
+    Namespace:      default
+    Pod Name:       docker-build-jpnfg
+  Completion Time:  2018-08-10T04:58:47Z
+  Conditions:
+    State:     Succeeded
+    Status:    True
+  Start Time:  2018-08-10T04:58:10Z
+  Step States:
+    Terminated:
+      Container ID:  docker://570002d349fc9e4309dc22235e94587bcf5685141f771d146fec9ebd9ed9ec44
+      Exit Code:     0
+      Finished At:   2018-08-10T04:58:10Z
+      Reason:        Completed
+      Started At:    2018-08-10T04:58:10Z
+    Terminated:
+      Container ID:  docker://86af6b46d41e53297b6d646fc30bb72a239a052899a62c392e845629e8041a14
+      Exit Code:     0
+      Finished At:   2018-08-10T04:58:12Z
+      Reason:        Completed
+      Started At:    2018-08-10T04:58:11Z
+    Terminated:
+      Container ID:  docker://9c6c952ab653b150d7ad24b50eec0c1040a283f3921b477bf38690c4d927097f
+      Exit Code:     0
+      Finished At:   2018-08-10T04:58:46Z
+      Reason:        Completed
+      Started At:    2018-08-10T04:58:12Z
+Events:
+  Type    Reason  Age                From              Message
+  ----    ------  ----               ----              -------
+  Normal  Synced  17s (x21 over 8m)  build-controller  Build synced successfully
