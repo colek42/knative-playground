@@ -124,3 +124,13 @@ look at logs - auth failing
 
 
 
+kubectl get builds, build should be succeeding, check docker hub
+
+It works
+
+we still need to manually trigger the build by appying the build manifest each time.  Next time we will explore using knative to listen to a github web hook to automate this process.  finally we will be deploying the application to the cluster automatically.
+
+
+
+
+
